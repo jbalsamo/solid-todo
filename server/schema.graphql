@@ -22,6 +22,14 @@ type AddTodoMutationResponse {
   todo: Todo
 }
 
+type toggleTodoMutationResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+  todo: Todo
+}
+
 type Mutation {
   addTodo(desc: String!): AddTodoMutationResponse
+  toggleTodo(id: ID!): toggleTodoMutationResponse
 }

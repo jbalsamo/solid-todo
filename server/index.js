@@ -43,6 +43,16 @@ const resolvers = {
         todo: addItem,
       };
     },
+    toggleTodo: (_, { id }) => {
+      let todo = todoList.filter((aid) => id === aid.id)[0];
+      todo.done = !todo.done;
+      return {
+        code: "200",
+        success: true,
+        message: "Toggled done",
+        todo: todo,
+      };
+    },
   },
 };
 
