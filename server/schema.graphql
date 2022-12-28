@@ -12,7 +12,7 @@ type Todo {
 # case, the "books" query returns an array of zero or more Books (defined above).
 type Query {
   todos: [Todo!]
-  todo(id: ID): Todo
+  todo(id: ID!): Todo
 }
 
 type AddTodoMutationResponse {
@@ -23,5 +23,5 @@ type AddTodoMutationResponse {
 }
 
 type Mutation {
-  addTodo(input: AddTodoInput!): AddTodoMutationResponse
+  addTodo(desc: String!): AddTodoMutationResponse
 }
