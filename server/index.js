@@ -30,6 +30,7 @@ const resolvers = {
     todo: (_, { id }) => {
       return todoList.filter((aid) => id === aid.id)[0];
     },
+    count: () => todoList.length,
   },
   Mutation: {
     addTodo: (_, { desc }) => {

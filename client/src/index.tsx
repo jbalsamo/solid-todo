@@ -1,7 +1,8 @@
 /* @refresh reload */
-import { render } from 'solid-js/web';
+import { ApolloClient, ApolloProvider } from "@merged/solid-apollo";
+import { Suspense } from "solid-js";
+import { render } from "solid-js/web";
+import App from "./App";
+import "./index.css";
 
-import './index.css';
-import App from './App';
-
-render(() => <App />, document.getElementById('root') as HTMLElement);
+render(() => <App />, document.getElementById("root") as HTMLElement);

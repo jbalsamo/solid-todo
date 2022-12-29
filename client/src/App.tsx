@@ -1,24 +1,24 @@
-import type { Component } from 'solid-js';
+import { createQuery, gql } from "@merged/solid-apollo";
+import type { Component } from "solid-js";
+import styles from "./css/App.module.css";
+import logo from "./logo.svg";
 
-import logo from './logo.svg';
-import styles from './App.module.css';
+/**
+ * Constants
+ */
+const countQuery = gql`
+  query {
+    count
+  }
+`;
 
 const App: Component = () => {
+  const results = createQuery(countQuery);
+
   return (
     <div class={styles.App}>
       <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
+        <h1 id="bigTitle">Apollo ToDo List - {results.data.count} items</h1>
       </header>
     </div>
   );
